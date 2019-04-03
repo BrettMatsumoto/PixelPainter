@@ -1,5 +1,5 @@
 #bigBox{
-  display: inline-flex;
+  display: flex;
 }
 #canvas{
   height: 600px;
@@ -19,5 +19,53 @@
 .colorBoxes{
   height: 48px;
   width: 48px;
-  border: 1px solid black;
+
+}
+#color1{
+  background-color: black;
+}
+#color2{
+  background-color: blue;
+}
+#color3{
+  background-color: purple;
+}
+#color4{
+  background-color: teal;
+}
+#color5{
+  background-color: red;
+}
+#color6{
+  background-color: cornflowerblue;
+}
+#color7{
+  background-color: magenta;
+}
+#color8{
+  background-color: salmon;
+}
+#color9{
+  background-color: gold;
+}
+#color10{
+  background-color:pink;
+}
+#color11{
+  background-color: lime;
+}
+#color12{
+  background-color: saddlebrown;
+}
+#color13{
+  background-color: slategray;
+}
+#color14{
+  background-color: khaki;
+}
+#color15{
+  background-color: sandybrown;
+}
+#color16{
+  background-color: silver;
 }
