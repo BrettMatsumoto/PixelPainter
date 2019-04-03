@@ -1,3 +1,6 @@
+#bigBox{
+  display: inline-flex;
+}
 #canvas{
   height: 600px;
   width: 600px;
@@ -9,12 +12,12 @@
   border: 1px solid black;
 }
 #colors{
-  height: 400px;
-  width: 400px;
+  height: 200px;
+  width: 200px;
   display: flex;
 }
 .colorBoxes{
-  height: 98px;
-  width: 98px;
+  height: 48px;
+  width: 48px;
   border: 1px solid black;
 }

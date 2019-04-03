@@ -20,7 +20,7 @@ const makeCanvasMatrix = function (x, y) {
     }
   }
 }
-makeCanvasMatrix(20, 20);
+makeCanvasMatrix(40, 40);
 
 const makeColorSwath = function (x, y) {
   let colorCollumCount = 1;
