@@ -1,8 +1,6 @@
 //Area to make HTML
 
 //
-
-
 const colorArea = document.getElementById('colors');
 const canvasArea = document.getElementById('canvas');
 
@@ -41,20 +39,20 @@ const makeColorSwath = function (x, y) {
       let colorBox = document.createElement('div');
       colorBox.id = 'color' + colorBoxCount;
       colorBox.className = 'colorBoxes';
+      colorBox.style.backgroundColor = "#"+((1<<24)*Math.random()|0).toString(16);
       colorBoxCount++;
       colorCollum.appendChild(colorBox);
-
     }
   }
 }
 makeColorSwath(4, 4);
 
-const getColorClass = document.getElementsByClassName('colorBoxes');
 
-for ( var i = 0; i < getColorClass.length; i++){
-  getColorClass[i].addEventListener('click', getColor)
+
+let getAllBoxes = document.getElementsByClassName('boxes');
+for (var i = 0; i < getAllBoxes.length; i++) {
+  getAllBoxes[i].addEventListener('click', setColor);
 }
-
-function getColor() {
-  console.log('test')
+function setColor() {
+  getAllBoxes = this.style.backgroundColor = currentColorChoice;
 }
