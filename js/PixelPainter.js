@@ -39,7 +39,7 @@ const makeColorSwath = function (x, y) {
       let colorBox = document.createElement('div');
       colorBox.id = 'color' + colorBoxCount;
       colorBox.className = 'colorBoxes';
-      colorBox.style.backgroundColor = "#"+((1<<24)*Math.random()|0).toString(16);
+      colorBox.style.backgroundColor = "#" + ((1 << 24) * Math.random() | 0).toString(16);
       colorBoxCount++;
       colorCollum.appendChild(colorBox);
     }
@@ -47,12 +47,22 @@ const makeColorSwath = function (x, y) {
 }
 makeColorSwath(4, 4);
 
+let currentColor;
+const getColorClass = document.getElementsByClassName('colorBoxes');
+for (var i = 0; i < getColorClass.length; i++){
+  getColorClass[i].addEventListener('click',getColor);
+}
 
+function getColor(){
+  currentColor = this.style.backgroundColor;
+  console.log(currentColor);
+}
 
 let getAllBoxes = document.getElementsByClassName('boxes');
-for (var i = 0; i < getAllBoxes.length; i++) {
-  getAllBoxes[i].addEventListener('click', setColor);
+for (var i =0; i<getAllBoxes.length;i++){
+  getAllBoxes[i].addEventListener('click',setColor);
 }
-function setColor() {
-  getAllBoxes = this.style.backgroundColor = currentColorChoice;
+function setColor(){
+  console.log('test')
+  this.style.backgroundColor = currentColor;
 }
