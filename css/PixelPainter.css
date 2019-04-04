@@ -1,11 +1,17 @@
+body{
+  background-image: url('https://i.pinimg.com/originals/fd/8f/8d/fd8f8da060afe72035e078e5fe661452.png');
+}
 #bigBox{
   display: flex;
+  width: 1700px;
+  justify-content: center;
 }
 #canvas{
-  height: 600px;
-  width: 600px;
+  height: 790px;
+  width: 1200px;
   display: flex;
   border: 1px solid black;
+  background-color: white;
 }
 .boxes{
   height: 10px;
@@ -13,12 +19,42 @@
   border: 1px solid black;
 }
 #colors{
-  height: 600px;
+  height: 780px;
   width: 192px;
   display: flex;
   border: 1px solid black;
+  background-color: white;
 }
 .colorBoxes{
-  height: 50px;
+  height: 49.5px;
   width: 48px;
+}
+h1{
+  font-family: 'Orbitron', sans-serif;
+  color: white;
+  display: flex;
+  justify-content: center;
+  width: 1795px;
+  text-decoration: underline;
+}
+#otherOptions{
+  height: 1000px;
+  width: 1795px;
+  display: inline-flex;
+  justify-content: space-between;
+}
+#clearButton{
+  font-family: 'Orbitron', sans-serif;
+  height: 50px;
+  width: 100px;
+}
+#eraseButton{
+  font-family: 'Orbitron', sans-serif;
+  height: 50px;
+  width: 100px;
+}
+#newColors{
+  font-family: 'Orbitron', sans-serif;
+  height: 50px;
+  width: 110px;
 }
