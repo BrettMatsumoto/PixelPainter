@@ -207,7 +207,7 @@
 //   console.log(x);
 //   console.log(y);
 // }
-
+console.log(screen.width);
 
 const phoneScreen = window.matchMedia("(max-width: 320px)");
 const iPadScreen = window.matchMedia("(min-width: 1024px)");
