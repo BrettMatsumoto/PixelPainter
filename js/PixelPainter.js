@@ -15,6 +15,11 @@ let moarButtButts = document.createElement('div');
 moarButtButts.id = 'otherOptions';
 document.body.appendChild(moarButtButts);
 
+let clearYoButt = document.createElement('button');
+clearYoButt.innerHTML = 'CLEAR';
+clearYoButt.id = 'clearButton';
+moarButtButts.appendChild(clearYoButt);
+
 //
 const colorArea = document.getElementById('colors');
 const canvasArea = document.getElementById('canvas');
@@ -101,4 +106,11 @@ function stopDraggingMe(){
   isMouseDown = false;
 }
 
-setInterval(function(){console.log(isMouseDown)}, 1000);
+const getClearButt = document.getElementById('clearButton');
+getClearButt.addEventListener('click', clearCanvas);
+
+function clearCanvas(){
+  for (var i =0; i< getAllBoxes.length;i++){
+    getAllBoxes[i].style.backgroundColor = 'FFFFFF';
+  }
+}
