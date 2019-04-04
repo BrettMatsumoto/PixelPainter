@@ -20,6 +20,16 @@ clearYoButt.innerHTML = 'CLEAR';
 clearYoButt.id = 'clearButton';
 moarButtButts.appendChild(clearYoButt);
 
+let eraseButt = document.createElement('button');
+eraseButt.innerHTML = 'ERASE';
+eraseButt.id = 'eraseButton';
+moarButtButts.appendChild(eraseButt);
+
+let newColorChoices = document.createElement('button');
+newColorChoices.innerHTML = 'GIT NEW COLORS';
+newColorChoices.id = 'newColors';
+moarButtButts.appendChild(newColorChoices);
+
 //
 const colorArea = document.getElementById('colors');
 const canvasArea = document.getElementById('canvas');
@@ -66,6 +76,13 @@ const makeColorSwath = function (x, y) {
   }
 }
 makeColorSwath(4, 12);
+
+function randomColorGenerator(){
+  let getColorBox = document.getElementsByClassName('colorBoxes');
+  for (let i = 0; i<getColorBox.length; i++){
+    getColorBox[i].style.backgroundColor = "#" + ((1 << 24) * Math.random() | 0).toString(16);
+  }
+}
 
 let currentColor;
 let isMouseDown = false;
@@ -114,3 +131,16 @@ function clearCanvas(){
     getAllBoxes[i].style.backgroundColor = 'FFFFFF';
   }
 }
+
+const getEraseButt = document.getElementById('eraseButton');
+getEraseButt.addEventListener('click', startErase);
+
+function startErase(){
+  if (currentColor !== 'FFFFFF'){
+    getEraseButt.style.backgroundColor = 'FFFFFF';
+  }
+  currentColor = 'FFFFFF';
+}
+
+const getNewColorButt = document.getElementById('newColors');
+getNewColorButt.addEventListener('click', randomColorGenerator);
