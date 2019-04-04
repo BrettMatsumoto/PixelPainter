@@ -1,4 +1,19 @@
 //Area to make HTML
+let colorCanvasHolder = document.createElement('div');
+colorCanvasHolder.id = 'bigBox';
+document.body.appendChild(colorCanvasHolder);
+
+let placeIHoldColors = document.createElement('div');
+placeIHoldColors.id = "colors";
+colorCanvasHolder.appendChild(placeIHoldColors);
+
+let placeToPutCanvas = document.createElement('div');
+placeToPutCanvas.id = 'canvas';
+colorCanvasHolder.appendChild(placeToPutCanvas);
+
+let moarButtButts = document.createElement('div');
+moarButtButts.id = 'otherOptions';
+document.body.appendChild(moarButtButts);
 
 //
 const colorArea = document.getElementById('colors');
@@ -49,20 +64,38 @@ makeColorSwath(4, 4);
 
 let currentColor;
 const getColorClass = document.getElementsByClassName('colorBoxes');
-for (var i = 0; i < getColorClass.length; i++){
-  getColorClass[i].addEventListener('click',getColor);
+for (var i = 0; i < getColorClass.length; i++) {
+  getColorClass[i].addEventListener('click', getColor);
 }
 
-function getColor(){
+function getColor() {
   currentColor = this.style.backgroundColor;
-  console.log(currentColor);
 }
+
+
 
 let getAllBoxes = document.getElementsByClassName('boxes');
-for (var i =0; i<getAllBoxes.length;i++){
-  getAllBoxes[i].addEventListener('click',setColor);
+for (var i = 0; i < getAllBoxes.length; i++) {
+  getAllBoxes[i].addEventListener('click', setColor);
+  getAllBoxes[i].addEventListener('onmousedown', startHover);
+  getAllBoxes[i].addEventListener('onmouseout', endHover);
 }
-function setColor(){
-  console.log('test')
+
+function setColor() {
   this.style.backgroundColor = currentColor;
+}
+
+let isMouseDown = false;
+
+function startHover() {
+  isMouseDown = true;
+  getAllBoxes[i].addEventListener('mouseover', startColoring)
+}
+
+function startColoring() {
+  this.style.backgroundColor = currentColor;
+}
+
+function endHover() {
+  isMouseDown = false;
 }
