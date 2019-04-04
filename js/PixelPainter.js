@@ -60,9 +60,11 @@ const makeColorSwath = function (x, y) {
     }
   }
 }
-makeColorSwath(4, 4);
+makeColorSwath(4, 12);
 
 let currentColor;
+let isMouseDown = false;
+
 const getColorClass = document.getElementsByClassName('colorBoxes');
 for (var i = 0; i < getColorClass.length; i++) {
   getColorClass[i].addEventListener('click', getColor);
@@ -72,30 +74,31 @@ function getColor() {
   currentColor = this.style.backgroundColor;
 }
 
-
-
 let getAllBoxes = document.getElementsByClassName('boxes');
 for (var i = 0; i < getAllBoxes.length; i++) {
   getAllBoxes[i].addEventListener('click', setColor);
-  getAllBoxes[i].addEventListener('onmousedown', startHover);
-  getAllBoxes[i].addEventListener('onmouseout', endHover);
+  getAllBoxes[i].addEventListener('mousedown', getReadyToDrag);
+  getAllBoxes[i].addEventListener('mouseover', startDragging);
+  getAllBoxes[i].addEventListener('mouseup', stopDraggingMe)
 }
 
 function setColor() {
   this.style.backgroundColor = currentColor;
 }
 
-let isMouseDown = false;
-
-function startHover() {
+function getReadyToDrag() {
   isMouseDown = true;
-  getAllBoxes[i].addEventListener('mouseover', startColoring)
+  console.log(isMouseDown);
 }
 
-function startColoring() {
-  this.style.backgroundColor = currentColor;
+function startDragging() {
+  if (isMouseDown == true) {
+    this.style.backgroundColor = currentColor;
+  }
 }
 
-function endHover() {
+function stopDraggingMe(){
   isMouseDown = false;
 }
+
+setInterval(function(){console.log(isMouseDown)}, 1000);
