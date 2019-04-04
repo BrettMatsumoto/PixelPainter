@@ -26,7 +26,7 @@ eraseButt.id = 'eraseButton';
 moarButtButts.appendChild(eraseButt);
 
 let newColorChoices = document.createElement('button');
-newColorChoices.innerHTML = 'GIT NEW COLORS';
+newColorChoices.innerHTML = 'GET NEW COLORS';
 newColorChoices.id = 'newColors';
 moarButtButts.appendChild(newColorChoices);
 
@@ -54,7 +54,7 @@ const makeCanvasMatrix = function (x, y) {
     }
   }
 }
-makeCanvasMatrix(50, 50);
+makeCanvasMatrix(100, 66);
 
 const makeColorSwath = function (x, y) {
   let colorCollumCount = 1;
@@ -75,7 +75,7 @@ const makeColorSwath = function (x, y) {
     }
   }
 }
-makeColorSwath(4, 12);
+makeColorSwath(4, 16);
 
 function randomColorGenerator(){
   let getColorBox = document.getElementsByClassName('colorBoxes');
