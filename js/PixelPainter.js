@@ -30,6 +30,11 @@ newColorChoices.innerHTML = 'GET NEW COLORS';
 newColorChoices.id = 'newColors';
 moarButtButts.appendChild(newColorChoices);
 
+let makeLine = document.createElement('button');
+makeLine.innerHTML = 'LINE';
+makeLine.id = 'drawLine';
+moarButtButts.appendChild(makeLine);
+
 //
 const colorArea = document.getElementById('colors');
 const canvasArea = document.getElementById('canvas');
@@ -144,3 +149,10 @@ function startErase(){
 
 const getNewColorButt = document.getElementById('newColors');
 getNewColorButt.addEventListener('click', randomColorGenerator);
+
+const lineButt = document.getElementById('drawLine');
+lineButt.addEventListener('click', makeLine);
+
+// function makeLine(){
+//   let position1
+// }
