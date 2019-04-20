@@ -1,55 +1,49 @@
-
-console.log(screen.width);
-
-const phoneScreen = window.matchMedia("(max-width: 320px)");
-const iPadScreen = window.matchMedia("(min-width: 1024px)");
+const phoneScreen = window.matchMedia('(max-width: 320px)');
+const iPadScreen = window.matchMedia('(min-width: 1024px)');
 
 function matchMyMedia(x, y) {
   if (x.matches) {
-    //Area to make HTML
     let colorCanvasHolder = document.createElement('div');
     colorCanvasHolder.id = 'bigBox';
     document.body.appendChild(colorCanvasHolder);
 
     let placeIHoldColors = document.createElement('div');
-    placeIHoldColors.id = "colors";
+    placeIHoldColors.id = 'colors';
     colorCanvasHolder.appendChild(placeIHoldColors);
 
     let placeToPutCanvas = document.createElement('div');
     placeToPutCanvas.id = 'canvas';
     colorCanvasHolder.appendChild(placeToPutCanvas);
 
-    let moarButtButts = document.createElement('div');
-    moarButtButts.id = 'otherOptions';
-    document.body.appendChild(moarButtButts);
+    let additionalButtons = document.createElement('div');
+    additionalButtons.id = 'otherOptions';
+    document.body.appendChild(additionalButtons);
 
-    let clearYoButt = document.createElement('button');
-    clearYoButt.innerHTML = 'CLEAR';
-    clearYoButt.id = 'clearButton';
-    moarButtButts.appendChild(clearYoButt);
+    let clearButton = document.createElement('button');
+    clearButton.innerHTML = 'CLEAR';
+    clearButton.id = 'clearButton';
+    additionalButtons.appendChild(clearButton);
 
-    let eraseButt = document.createElement('button');
-    eraseButt.innerHTML = 'ERASE';
-    eraseButt.id = 'eraseButton';
-    moarButtButts.appendChild(eraseButt);
+    let eraseButton = document.createElement('button');
+    eraseButton.innerHTML = 'ERASE';
+    eraseButton.id = 'eraseButtonon';
+    additionalButtons.appendChild(eraseButton);
 
     let newColorChoices = document.createElement('button');
     newColorChoices.innerHTML = 'GET NEW COLORS';
     newColorChoices.id = 'newColors';
-    moarButtButts.appendChild(newColorChoices);
+    additionalButtons.appendChild(newColorChoices);
 
     let makeLine = document.createElement('button');
     makeLine.innerHTML = 'LINE';
     makeLine.id = 'drawLine';
-    moarButtButts.appendChild(makeLine);
+    additionalButtons.appendChild(makeLine);
 
-    //
     const colorArea = document.getElementById('colors');
     const canvasArea = document.getElementById('canvas');
     let pixelMatrix = [];
 
-
-    const makeCanvasMatrix = function (x, y) {
+    const makeCanvasMatrix = function(x, y) {
       let colCount = 1;
       let boxCount = 1;
 
@@ -57,7 +51,7 @@ function matchMyMedia(x, y) {
         let collum = document.createElement('div');
         let collumArray = [];
         collum.id = colCount;
-        collum.className = 'canvasCollumns'
+        collum.className = 'canvasCollumns';
         canvasArea.appendChild(collum);
         colCount++;
         for (let k = 0; k < y; k++) {
@@ -66,15 +60,14 @@ function matchMyMedia(x, y) {
           box.className = 'boxes';
           collum.appendChild(box);
           collumArray.push(box);
-          boxCount++
+          boxCount++;
         }
         pixelMatrix.push(collumArray);
       }
-    }
+    };
     makeCanvasMatrix(100, 66);
-    // console.log(pixelMatrix);
 
-    const makeColorSwath = function (x, y) {
+    const makeColorSwath = function(x, y) {
       let colorCollumCount = 1;
       let colorBoxCount = 1;
 
@@ -87,18 +80,18 @@ function matchMyMedia(x, y) {
           let colorBox = document.createElement('div');
           colorBox.id = 'color' + colorBoxCount;
           colorBox.className = 'colorBoxes';
-          colorBox.style.backgroundColor = "#" + ((1 << 24) * Math.random() | 0).toString(16);
+          colorBox.style.backgroundColor = '#' + (((1 << 24) * Math.random()) | 0).toString(16);
           colorBoxCount++;
           colorCollum.appendChild(colorBox);
         }
       }
-    }
+    };
     makeColorSwath(4, 16);
 
     function randomColorGenerator() {
       let getColorBox = document.getElementsByClassName('colorBoxes');
       for (let i = 0; i < getColorBox.length; i++) {
-        getColorBox[i].style.backgroundColor = "#" + ((1 << 24) * Math.random() | 0).toString(16);
+        getColorBox[i].style.backgroundColor = '#' + (((1 << 24) * Math.random()) | 0).toString(16);
       }
     }
 
@@ -119,7 +112,7 @@ function matchMyMedia(x, y) {
       getAllBoxes[i].addEventListener('click', setColor);
       getAllBoxes[i].addEventListener('mousedown', getReadyToDrag);
       getAllBoxes[i].addEventListener('mouseover', startDragging);
-      getAllBoxes[i].addEventListener('mouseup', stopDraggingMe)
+      getAllBoxes[i].addEventListener('mouseup', stopDraggingMe);
     }
 
     function setColor() {
@@ -140,8 +133,8 @@ function matchMyMedia(x, y) {
       isMouseDown = false;
     }
 
-    const getClearButt = document.getElementById('clearButton');
-    getClearButt.addEventListener('click', clearCanvas);
+    const getClearButton = document.getElementById('clearButton');
+    getClearButton.addEventListener('click', clearCanvas);
 
     function clearCanvas() {
       for (var i = 0; i < getAllBoxes.length; i++) {
@@ -149,12 +142,12 @@ function matchMyMedia(x, y) {
       }
     }
 
-    const getEraseButt = document.getElementById('eraseButton');
-    getEraseButt.addEventListener('click', startErase);
+    const getEraseButton = document.getElementById('eraseButtonon');
+    getEraseButton.addEventListener('click', startErase);
 
     function startErase() {
       if (currentColor !== 'FFFFFF') {
-        getEraseButt.style.backgroundColor = 'FFFFFF';
+        getEraseButton.style.backgroundColor = 'FFFFFF';
       }
       currentColor = 'FFFFFF';
     }
@@ -169,44 +162,43 @@ function matchMyMedia(x, y) {
     document.body.appendChild(colorCanvasHolder);
 
     let placeIHoldColors = document.createElement('div');
-    placeIHoldColors.id = "colors";
+    placeIHoldColors.id = 'colors';
     colorCanvasHolder.appendChild(placeIHoldColors);
 
     let placeToPutCanvas = document.createElement('div');
     placeToPutCanvas.id = 'canvas';
     colorCanvasHolder.appendChild(placeToPutCanvas);
 
-    let moarButtButts = document.createElement('div');
-    moarButtButts.id = 'otherOptions';
-    document.body.appendChild(moarButtButts);
+    let additionalButtons = document.createElement('div');
+    additionalButtons.id = 'otherOptions';
+    document.body.appendChild(additionalButtons);
 
-    let clearYoButt = document.createElement('button');
-    clearYoButt.innerHTML = 'CLEAR';
-    clearYoButt.id = 'clearButton';
-    moarButtButts.appendChild(clearYoButt);
+    let clearButton = document.createElement('button');
+    clearButton.innerHTML = 'CLEAR';
+    clearButton.id = 'clearButton';
+    additionalButtons.appendChild(clearButton);
 
-    let eraseButt = document.createElement('button');
-    eraseButt.innerHTML = 'ERASE';
-    eraseButt.id = 'eraseButton';
-    moarButtButts.appendChild(eraseButt);
+    let eraseButton = document.createElement('button');
+    eraseButton.innerHTML = 'ERASE';
+    eraseButton.id = 'eraseButtonon';
+    additionalButtons.appendChild(eraseButton);
 
     let newColorChoices = document.createElement('button');
     newColorChoices.innerHTML = 'GET NEW COLORS';
     newColorChoices.id = 'newColors';
-    moarButtButts.appendChild(newColorChoices);
+    additionalButtons.appendChild(newColorChoices);
 
     let makeLine = document.createElement('button');
     makeLine.innerHTML = 'LINE';
     makeLine.id = 'drawLine';
-    moarButtButts.appendChild(makeLine);
+    additionalButtons.appendChild(makeLine);
 
     //
     const colorArea = document.getElementById('colors');
     const canvasArea = document.getElementById('canvas');
     let pixelMatrix = [];
 
-
-    const makeCanvasMatrix = function (x, y) {
+    const makeCanvasMatrix = function(x, y) {
       let colCount = 1;
       let boxCount = 1;
 
@@ -214,7 +206,7 @@ function matchMyMedia(x, y) {
         let collum = document.createElement('div');
         let collumArray = [];
         collum.id = colCount;
-        collum.className = 'canvasCollumns'
+        collum.className = 'canvasCollumns';
         canvasArea.appendChild(collum);
         colCount++;
         for (let k = 0; k < y; k++) {
@@ -223,15 +215,15 @@ function matchMyMedia(x, y) {
           box.className = 'boxes';
           collum.appendChild(box);
           collumArray.push(box);
-          boxCount++
+          boxCount++;
         }
         pixelMatrix.push(collumArray);
       }
-    }
+    };
     makeCanvasMatrix(100, 66);
     // console.log(pixelMatrix);
 
-    const makeColorSwath = function (x, y) {
+    const makeColorSwath = function(x, y) {
       let colorCollumCount = 1;
       let colorBoxCount = 1;
 
@@ -244,18 +236,18 @@ function matchMyMedia(x, y) {
           let colorBox = document.createElement('div');
           colorBox.id = 'color' + colorBoxCount;
           colorBox.className = 'colorBoxes';
-          colorBox.style.backgroundColor = "#" + ((1 << 24) * Math.random() | 0).toString(16);
+          colorBox.style.backgroundColor = '#' + (((1 << 24) * Math.random()) | 0).toString(16);
           colorBoxCount++;
           colorCollum.appendChild(colorBox);
         }
       }
-    }
+    };
     makeColorSwath(4, 16);
 
     function randomColorGenerator() {
       let getColorBox = document.getElementsByClassName('colorBoxes');
       for (let i = 0; i < getColorBox.length; i++) {
-        getColorBox[i].style.backgroundColor = "#" + ((1 << 24) * Math.random() | 0).toString(16);
+        getColorBox[i].style.backgroundColor = '#' + (((1 << 24) * Math.random()) | 0).toString(16);
       }
     }
 
@@ -276,7 +268,7 @@ function matchMyMedia(x, y) {
       getAllBoxes[i].addEventListener('click', setColor);
       getAllBoxes[i].addEventListener('mousedown', getReadyToDrag);
       getAllBoxes[i].addEventListener('mouseover', startDragging);
-      getAllBoxes[i].addEventListener('mouseup', stopDraggingMe)
+      getAllBoxes[i].addEventListener('mouseup', stopDraggingMe);
     }
 
     function setColor() {
@@ -297,8 +289,8 @@ function matchMyMedia(x, y) {
       isMouseDown = false;
     }
 
-    const getClearButt = document.getElementById('clearButton');
-    getClearButt.addEventListener('click', clearCanvas);
+    const getClearButton = document.getElementById('clearButton');
+    getClearButton.addEventListener('click', clearCanvas);
 
     function clearCanvas() {
       for (var i = 0; i < getAllBoxes.length; i++) {
@@ -306,12 +298,12 @@ function matchMyMedia(x, y) {
       }
     }
 
-    const getEraseButt = document.getElementById('eraseButton');
-    getEraseButt.addEventListener('click', startErase);
+    const getEraseButton = document.getElementById('eraseButtonon');
+    getEraseButton.addEventListener('click', startErase);
 
     function startErase() {
       if (currentColor !== 'FFFFFF') {
-        getEraseButt.style.backgroundColor = 'FFFFFF';
+        getEraseButton.style.backgroundColor = 'FFFFFF';
       }
       currentColor = 'FFFFFF';
     }
@@ -319,7 +311,6 @@ function matchMyMedia(x, y) {
     const getNewColorButt = document.getElementById('newColors');
     getNewColorButt.addEventListener('click', randomColorGenerator);
   } else {
-
   }
 }
 matchMyMedia(phoneScreen, iPadScreen);
