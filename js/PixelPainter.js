@@ -193,7 +193,6 @@ function matchMyMedia(x, y) {
     makeLine.id = 'drawLine';
     additionalButtons.appendChild(makeLine);
 
-    //
     const colorArea = document.getElementById('colors');
     const canvasArea = document.getElementById('canvas');
     let pixelMatrix = [];
@@ -221,8 +220,6 @@ function matchMyMedia(x, y) {
       }
     };
     makeCanvasMatrix(100, 66);
-    // console.log(pixelMatrix);
-
     const makeColorSwath = function(x, y) {
       let colorCollumCount = 1;
       let colorBoxCount = 1;
